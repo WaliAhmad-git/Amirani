@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  --color-bg:           #FAF6F0;  /* ivory  — page base */
+  --color-bg-alt:       #EFE8DC;  /* linen  — section alternates */
+  --color-surface:      #FDFAF7;  /* off-white — cards, navbar */
+  --color-border:       #DDD3C8;  /* soft dividers */
+  --color-accent:       #C9897A;  /* dusty rose — CTAs */
+  --color-accent-hover: #A3705F;  /* muted — CTA hover */
+  --color-text:         #5C4A42;  /* warm — headings */
+  --color-text-body:    #8C7B70;  /* stone — body copy */
+  --color-sage:         #A8B5A0;  /* sage — secondary accents */
+  --color-blush:        #E8C9B8;  /* blush — highlights */
+
+  --shadow-soft: 0 2px 12px rgba(92, 74, 66, 0.07);
+  --shadow-card: 0 4px 24px rgba(92, 74, 66, 0.10);
+  --shadow-lift: 0 8px 32px rgba(92, 74, 66, 0.14);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-body);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+/* ─── Typography ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--color-text);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 2.5rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+p {
+  color: var(--color-text-body);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Focus ─────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Selection ─────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-blush);
+  color: var(--color-text);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-bg-alt); }
+::-webkit-scrollbar-thumb  { background: var(--color-border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ─── Utilities ─────────────────────────────────────────────────── */
+.section-ivory { background-color: var(--color-bg); }
+.section-linen { background-color: var(--color-bg-alt); }
+
+.text-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 640px)  { .container-site { padding: 0 2rem; } }
+@media (min-width: 1024px) { .container-site { padding: 0 3rem; } }
+
+/* ─── Reduced Motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
